@@ -33,6 +33,12 @@ public class Transaction {
         this.value = other.getValue();
     }
 
+    public JsonObject toJson() {
+        JsonObject json = new JsonObject();
+        TransactionConverter.toJson(this, json);
+        return json;
+    }
+
     @Fluent public Transaction setId(String id){
         this.id = id;
         return this;
